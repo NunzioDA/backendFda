@@ -3,6 +3,7 @@
 	include './internal/db_access.php';
 	include './internal/http_parameters_controller.php';
 	include './internal/credential_management.php';
+	header("Access-Control-Allow-Origin: *");
 	
 	$username = _GET_("username");
 	$token = _GET_("token");

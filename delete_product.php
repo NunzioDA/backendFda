@@ -5,6 +5,7 @@
 	include './internal/http_parameters_controller.php';
 	include './internal/permission_check.php';
 	header("Access-Control-Allow-Origin: *");
+	
 	$username = _GET_("username");
 	$token = _GET_("token");
 	$product_id = _GET_("id");

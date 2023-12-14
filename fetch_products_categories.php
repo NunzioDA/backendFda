@@ -2,6 +2,7 @@
 	include './internal/error_codes.php';
 	include './internal/db_access.php';
 	include './internal/http_parameters_controller.php';	
+	header("Access-Control-Allow-Origin: *");
 	
 	function getCategoryProducts(&$category, $connection)
 	{

@@ -4,6 +4,7 @@
 	include './internal/http_parameters_controller.php';
 	include './internal/credential_management.php';
 	include './internal/permission_check.php';
+	header("Access-Control-Allow-Origin: *");
 	
 	function getOrderProducts(&$order, $connection)
 	{

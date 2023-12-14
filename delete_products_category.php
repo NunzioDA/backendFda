@@ -14,17 +14,30 @@
 	
 	$db = new DBHandler();
 	$db -> mydb_open_connection("my_coinquilinipercaso");
-	$conn_appointment = $db -> conn;
+	$conn = $db -> conn;
 	
 	if($cred_manager -> matching_username_token($username, $token))
 	{
 		if($perm_checker -> user_have_permissions($username))
 		{			
-			$remove_category = "DELETE FROM category WHERE name = :name";
-			$stmt = $conn_appointment -> prepare($remove_category);
-			$stmt -> bindParam(':name', $name);
-			$stmt -> execute();	
-			echo successful_operation;
+			try{
+				$conn -> beginTransaction();
+				$remove_category = "DELETE FROM category WHERE name = :name";
+				$stmt = $conn -> prepare($remove_category);
+				$stmt -> bindParam(':name', $name);
+				$stmt -> execute();	
+				
+				$disable_products = "UPDATE product SET active=0 WHERE category_name=:name";
+				$stmt = $conn -> prepare($disable_products);
+				$stmt -> bindParam(':name', $name);
+				$stmt -> execute();	
+				$conn->commit();
+				echo successful_operation;
+			}
+			catch(e){
+				$conn->rollback();
+				die(failed_transition." ".$e);
+			}
 		}
 		else echo access_denied;
 	}

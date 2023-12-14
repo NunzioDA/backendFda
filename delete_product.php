@@ -20,7 +20,7 @@
 	{
 		if($perm_checker -> user_have_permissions($username))
 		{			
-			$remove_product = "DELETE FROM product WHERE id = :product_id";
+			$remove_product = "UPDATE product SET active=0 WHERE id = :product_id";
 			$stmt = $conn_appointment -> prepare($remove_product);
 			$stmt -> bindParam(':product_id', $product_id);
 			$stmt -> execute();	

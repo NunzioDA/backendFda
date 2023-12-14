@@ -5,7 +5,7 @@
 	
 	function getCategoryProducts(&$category, $connection)
 	{
-		$get_product = "SELECT * FROM product WHERE category_name = :category_name";
+		$get_product = "SELECT * FROM product WHERE category_name = :category_name AND active=True";
 		$stmt = $connection -> prepare($get_product);
 		$stmt -> bindParam(':category_name', $category["name"]);
 		$stmt -> execute();

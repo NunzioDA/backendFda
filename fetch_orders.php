@@ -7,9 +7,11 @@
 	
 	function getOrderProducts(&$order, $connection)
 	{
-		$get_product = "SELECT id, name, description, image, category_name, count(*) as product_count,".
-		" (SELECT price_at_the_time FROM order_include WHERE order_id = :order_id AND product_id=product.id LIMIT 1)".
-		" as price FROM product WHERE id IN (SELECT product_id FROM order_include WHERE order_id = :order_id) GROUP BY id;";
+		$get_product = "SELECT product.id, product.name, product.description, product.image, ".
+						"product.category_name as product_count, (SELECT price_at_the_time ".
+						"FROM order_include WHERE order_id = :order_id AND product_id=product.id LIMIT 1) as price,".
+						" count(*) as product_count FROM product RIGHT JOIN order_include ON product.id = order_include.product_id".
+						" WHERE order_id = :order_id GROUP BY product.id;";
 		$stmt = $connection -> prepare($get_product);
 		$stmt -> bindParam(':order_id', $order["id"]);
 		$stmt -> execute();

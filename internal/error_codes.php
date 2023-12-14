@@ -39,17 +39,6 @@
 	define('wrong_username_or_token', 'B206');	
 	
 	/*
-	 * 300 base code
-	 * Appointments errors
-	 */
-	define('overlapping_extraordinary_closing', 'B301');
-	define('overlapping_appointments', 'B302');
-	define('starts_after_closing', 'B303');
-	define('starts_before_opening', 'B304');
-	define('ends_after_closing', 'B305');
-	define('ends_before_opening', 'B306'); 	
-	
-	/*
 	 * 900 base code
 	 * Internal codes
 	 */

@@ -7,7 +7,7 @@
 	$file_url = getImagePath().$image_name;
 	$image = imagecreatefromstring(file_get_contents($file_url));
 	
-	header('Content-type: image/png');
+	header('Content-type: image/gif');
 	
 	imagepng($image);
 ?>

@@ -27,6 +27,11 @@
 				$stmt -> bindParam(':name', $name);
 				$stmt -> execute();	
 				
+				$remove_products_from_cart = "DELETE FROM cart WHERE product_id IN (SELECT id FROM product WHERE category_name=:name)";
+				$stmt = $conn -> prepare($remove_products_from_cart);
+				$stmt -> bindParam(':name', $name);
+				$stmt -> execute();	
+				
 				$disable_products = "UPDATE product SET active=0 WHERE category_name=:name";
 				$stmt = $conn -> prepare($disable_products);
 				$stmt -> bindParam(':name', $name);

@@ -1,4 +1,5 @@
 <?php
+	include './internal/error_codes.php';
 	include './internal/image_management.php';
 	include './internal/http_parameters_controller.php';
 	header("Access-Control-Allow-Origin: *");

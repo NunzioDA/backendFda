@@ -15,7 +15,7 @@
 	
 	if($cred_manager -> matching_username_token($username, $token))
 	{		
-		$get_user = "SELECT username, profile_pic, name, has_permission FROM user WHERE username = :username";
+		$get_user = "SELECT username, name, has_permission FROM user WHERE username = :username";
 		$stmt = $connection -> prepare($get_user);
 		$stmt -> bindParam(':username', $username);
 		$stmt -> execute();

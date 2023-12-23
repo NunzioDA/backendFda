@@ -31,7 +31,7 @@
 		return $imagesPath;
 	}
 	
-	function saveBase64Image($base64_encoded_string)
+	function saveBase64Image($base64_encoded_string, $to_8bit = false)
 	{
 		$name = bin2hex(openssl_random_pseudo_bytes(16));	
 		$files = scandir(getImagesDirectory());
@@ -48,9 +48,14 @@
 			}
 		}while(!$check);
 		
-		$decodedImage = base64_decode($base64_encoded_string); 			
-		convertPNGto8bitPNGAndSave($decodedImage, getImagePath().$name);
+		$decodedImage = base64_decode($base64_encoded_string); 		
 		
+		if($to_8bit){
+			convertPNGto8bitPNGAndSave($decodedImage, getImagePath().$name);
+		}
+		else {
+			file_put_contents(getImagePath().$name, $decodedImage);
+		}
 		return $name;
 	}
 ?>

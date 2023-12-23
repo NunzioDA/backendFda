@@ -24,7 +24,7 @@
 	{		
 		if($perm_checker -> user_have_permissions($username))
 		{			
-			$image_name = saveBase64Image($image);
+			$image_name = saveBase64Image($image, true);
 	
 			$create_category_query = "INSERT INTO category (name, image) VALUES (:name, :image)";
 			$stmt = $conn -> prepare($create_category_query);

@@ -21,8 +21,6 @@
 	
 	$c_manager = new CredentialManager($handler);
 	
-	$c_manager -> validate_or_die($username,$password);
-	
 	try {		
 		if($c_manager -> matching_username_password($username, $password))
 		{

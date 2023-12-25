@@ -100,10 +100,7 @@
 		{
 			$conn = $this -> db_user_handler -> conn;
 			
-			$this -> validate_or_die($username,$password);
-			
-			$password = hash("sha512", $password);	
-		
+			$password = hash("sha512", $password);			
 				
 			$_query = "SELECT password FROM user WHERE username = BINARY :username;";
 			$stmt = $conn -> prepare($_query);

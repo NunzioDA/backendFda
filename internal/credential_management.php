@@ -1,7 +1,7 @@
 <?php
 	
 	define('min_pass_len', 6);
-	define('min_username_len', 6);	
+	define('min_username_len', 3);	
 	define('min_name_len', 3);	
 
 	class CredentialManager

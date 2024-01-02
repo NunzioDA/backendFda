@@ -20,7 +20,7 @@
 	$perm_checker = new PermissionChecker($cred_manager -> db_user_handler);
 	
 	$db = new DBHandler();
-	$db -> mydb_open_connection("my_coinquilinipercaso");
+	$db -> mydb_open_connection();
 	$conn = $db -> conn;
 	
 	if($cred_manager -> matching_username_token($username, $token))

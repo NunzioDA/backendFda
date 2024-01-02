@@ -13,7 +13,7 @@
 			if(is_null($handler))
 			{
 				$this -> db_user_handler = new DBHandler();
-				$this -> db_user_handler -> mydb_open_connection("my_coinquilinipercaso");
+				$this -> db_user_handler -> mydb_open_connection();
 			}
 			else $this -> db_user_handler = $handler;
 		}

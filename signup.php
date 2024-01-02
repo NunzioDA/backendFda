@@ -11,7 +11,7 @@
 	
 	
 	$handler = new DBHandler();	
-	$handler -> mydb_open_connection("my_coinquilinipercaso");
+	$handler -> mydb_open_connection();
 	$conn = $handler -> conn;
 	
 	$c_manager = new CredentialManager($handler);

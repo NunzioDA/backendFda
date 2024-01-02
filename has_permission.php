@@ -10,7 +10,7 @@
 	$username = _GET_("username");
 
 	$db_user = new DBHandler();
-	$db_user -> mydb_open_connection("my_coinquilinipercaso");
+	$db_user -> mydb_open_connection();
 	
 	$permission_checker = new PermissionChecker($db_user);
 	

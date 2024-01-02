@@ -3,8 +3,9 @@
 	{
 		public $conn = NULL;
 	
-		function mydb_open_connection($dbname)
+		function mydb_open_connection()
 		{			
+			$dbname = "my_smashdev";
 			$this -> close_connection();
 			
 			$host = "localhost";

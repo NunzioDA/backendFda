@@ -12,7 +12,7 @@
 	$cred_manager = new CredentialManager();
 	
 	$db = new DBHandler();
-	$db -> mydb_open_connection("my_coinquilinipercaso");
+	$db -> mydb_open_connection();
 	$conn = $db -> conn;
 	
 	if($cred_manager -> matching_username_token($username, $token))
